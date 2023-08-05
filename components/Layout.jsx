@@ -28,12 +28,13 @@ const Layout = ({ children }) => {
           }
         `}
       </style>
-      <Nav />
+
       <Head>
         <title></title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>{children}</div>
+      <Nav />
+      <div className={``}>{children}</div>
       <Footer />
     </>
   );

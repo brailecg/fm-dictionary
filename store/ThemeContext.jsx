@@ -23,11 +23,11 @@ export const ThemeProvider = ({ children }) => {
   const initialThemeHandler = () => {
     if (isLocalStorageEmpty().isDarkTheme) {
       localStorage.setItem("isDarkTheme", `true`);
-      document.querySelector("body").classList.add("dark");
+      document.querySelector("html").classList.add("dark");
       setIsDarkTheme(true);
     } else {
       const isDarkTheme = JSON.parse(localStorage.getItem("isDarkTheme"));
-      isDarkTheme && document.querySelector("body").classList.add("dark");
+      isDarkTheme && document.querySelector("html").classList.add("dark");
       setIsDarkTheme(() => {
         return isDarkTheme;
       });
@@ -49,7 +49,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   const toggleDarkClassToBody = () => {
-    document.querySelector("body").classList.toggle("dark");
+    document.querySelector("html").classList.toggle("dark");
   };
 
   const setValueToLocalStorage = () => {

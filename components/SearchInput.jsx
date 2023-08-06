@@ -5,7 +5,7 @@ const SearchInput = ({ setWord }) => {
   const [searchWord, setSearchWord] = useState("");
   return (
     <div // searchbar
-      className={` rounded-2xl flex items-center w-full bg-fmgrey-three h-16 px-6 dark:bg-fmblack-two`}>
+      className={` rounded-2xl flex items-center w-full bg-fmgrey-three h-16 px-2 lg:px-6 dark:bg-fmblack-two`}>
       <input
         onChange={(e) => setSearchWord(e.target.value)}
         type="text"

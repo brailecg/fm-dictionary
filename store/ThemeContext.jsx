@@ -7,7 +7,7 @@ export const useThemeContext = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState("false");
   const [typeFace, setTypeFace] = useState("inter");
 
   const isLocalStorageEmpty = () => {
@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
 
   const initialThemeHandler = () => {
     if (isLocalStorageEmpty().isDarkTheme) {
-      localStorage.setItem("isDarkTheme", `true`);
+      localStorage.setItem("isDarkTheme", "true");
       document.querySelector("html").classList.add("dark");
       setIsDarkTheme(true);
     } else {

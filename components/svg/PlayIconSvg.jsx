@@ -57,3 +57,32 @@ export const PlayIconSvgLarge = () => {
     </div>
   );
 };
+
+export const PlayIconSvgMini = () => {
+  const [isPlayHovered, setIsPlayHovered] = useState(false);
+  const handleMouseEnter = () => setIsPlayHovered(true);
+  const handleMouseLeave = () => setIsPlayHovered(false);
+  return (
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none">
+        <circle
+          cx={10}
+          cy={10}
+          r={10}
+          fill="#A445ED"
+          opacity={isPlayHovered ? 1 : 0.25}
+        />
+        <path
+          fill={isPlayHovered ? "white" : "#A445ED"}
+          fillRule="evenodd"
+          d="M7.917 7.5v5.417l5.416-2.709L7.917 7.5Z"
+          clipRule="evenodd"
+        />
+      </svg>
+    </div>
+  );
+};

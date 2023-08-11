@@ -71,7 +71,7 @@ const CustomDropdown = ({ toggleTypeFace, typeFace }) => {
             <button
               onClick={() => toggleTypeFaceAction(Object.keys(type)[0])}
               key={index}
-              className={`block px-4 py-2 text-sm text-fmblack-three dark:text-white font-bold ${
+              className={` hover:text-component-purple block px-4 py-2 text-sm text-fmblack-three dark:text-white font-bold ${
                 typeFaceOptionsTailwind[Object.keys(type)[0]]
               }`}
               role="menuitem">

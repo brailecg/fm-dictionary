@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export const PlayIconSvgMobile = () => {
   const [isPlayHovered, setIsPlayHovered] = useState(false);
@@ -58,12 +58,44 @@ export const PlayIconSvgLarge = () => {
   );
 };
 
-export const PlayIconSvgMini = () => {
+export const PlayIconSvgMini = ({ audioUrl }) => {
   const [isPlayHovered, setIsPlayHovered] = useState(false);
+
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleAudio = () => {
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   const handleMouseEnter = () => setIsPlayHovered(true);
   const handleMouseLeave = () => setIsPlayHovered(false);
+
+  function getFileExtension(filename) {
+    // Get the last index of the dot (.) character in the filename
+    const lastDotIndex = filename.lastIndexOf(".");
+
+    if (lastDotIndex === -1) {
+      // No dot (.) character found, so no extension
+      return "";
+    } else {
+      // Use substring to extract the extension
+      const extension = filename.substring(lastDotIndex + 1);
+      return extension;
+    }
+  }
+
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={toggleAudio}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={20}
@@ -83,6 +115,7 @@ export const PlayIconSvgMini = () => {
           clipRule="evenodd"
         />
       </svg>
+      <audio ref={audioRef} src={audioUrl} />
     </div>
   );
 };

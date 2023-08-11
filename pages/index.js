@@ -70,7 +70,9 @@ export default function Home() {
                                   {phoneticCurrentValue.text}
                                 </p>
                                 {phoneticCurrentValue.audio && (
-                                  <PlayIconSvgMini />
+                                  <PlayIconSvgMini
+                                    audioUrl={phoneticCurrentValue.audio}
+                                  />
                                 )}
                               </button>
                             )

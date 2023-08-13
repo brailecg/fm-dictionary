@@ -29,10 +29,6 @@ const Layout = ({ children }) => {
         `}
       </style>
 
-      <Head>
-        <title></title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Nav />
       <div className={``}>{children}</div>
     </>
